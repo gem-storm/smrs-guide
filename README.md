@@ -126,6 +126,7 @@ model: # Put your RIFE path here.
 
 ## Making a mask
 
+It's worth noting that masking is only really needed for low-fps inputs such as 120-180fps, or if you are using Flowblur.
 - Download Paint.net from https://getpaint.net.
 - Take a screenshot of your video (make sure the resolution matches and the HUD is visible).
 - Open the screenshot in Paint.net.
@@ -137,8 +138,9 @@ model: # Put your RIFE path here.
 - Copy the path and use it in Smoothie-RS.
 
 ## Encoding args
+
 Luckily for us, Couleur added an easy way to customize your encoding args in Smoothie-RS.
-- `H264 NVENC` for NVIDIA,
+- `H264 NVENC` for Nvidia,
 - `H264 AMF` for AMD, or
 - `H264 CPU` for Intel.
 > Simply replace `H264` with `H265` if you want HEVC.
@@ -146,4 +148,5 @@ Luckily for us, Couleur added an easy way to customize your encoding args in Smo
 - You can still type encoding args the old-fashioned way, and to make it easier you can edit `encoding_presets.ini` to add your own custom presets.
 
 ## Coldchrome LUT download
+
 Coldchrome should be used with around 0.1-0.2 opacity, depending on the clip. You can download it [here](https://files.catbox.moe/d5jvto.cube)
