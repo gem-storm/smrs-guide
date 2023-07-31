@@ -3,9 +3,10 @@ A bunch of guides for Smoothie-RS (Windows only)
 ## Table of contents
 
 - [Installation](#installation)  
-- [RIFE/pre-interp Installation](#rifepre-interp-installation)   
+- [RIFE/pre-interp](#rifepre-interp)   
 - [Explaining the config (recipe)](#explaining-the-config-recipe)
 - [Making a mask](#making-a-mask)
+- [Coldchrome LUT download](#coldchrome-lut-download)
 
 ## Installation
 
@@ -133,3 +134,6 @@ model: # Put your RIFE path here.
 - Once you are done, fill the rest of the image with *white*.
 - Do Ctrl + Shift + S and save as a PNG.
 - Copy the path and use it in Smoothie-RS.
+
+  ## Coldchrome LUT download
+Coldchrome should be used with around 0.1-0.2 opacity, depending on the clip. You can download it [here](https://files.catbox.moe/d5jvto.cube)
