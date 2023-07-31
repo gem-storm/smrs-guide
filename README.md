@@ -1,9 +1,9 @@
 A bunch of guides for Smoothie-RS (Windows only)
 ## Table of contents
-- [Installation](https://github.com/gem-storm/smrs-guide/edit/main/README.md#installation)
-- [RIFE/pre-interp Installation](https://github.com/gem-storm/smrs-guide/edit/main/README.md#rifepre-interp-installation)
-- [Explaining the config (recipe)](https://github.com/gem-storm/smrs-guide/edit/main/README.md#explaining-the-config-recipe)
-- [Making a mask](https://github.com/gem-storm/smrs-guide/edit/main/README.md#making-a-mask)
+- [Installation](https://github.com/gem-storm/smrs-guide/tree/main#installation)
+- [RIFE/pre-interp Installation](https://github.com/gem-storm/smrs-guide/tree/main#rifepre-interp-installation)
+- [Explaining the config (recipe)](https://github.com/gem-storm/smrs-guide/tree/main#explaining-the-config-recipe)
+- [Making a mask](https://github.com/gem-storm/smrs-guide/tree/main#making-a-mask)
 ## Installation
 ### You can follow [this tutorial I made](https://youtu.be/RfPDgoMuSWg)
 If you don't want to watch that tutorial, follow the rest of this section and RIFE/pre-interp Installation:
