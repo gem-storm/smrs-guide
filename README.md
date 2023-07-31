@@ -1,35 +1,49 @@
 A bunch of guides for Smoothie-RS (Windows only)
+
 ## Table of contents
-- [Installation](https://github.com/gem-storm/smrs-guide/tree/main#installation)
-- [RIFE/pre-interp Installation](https://github.com/gem-storm/smrs-guide/tree/main#rifepre-interp-installation)
-- [Explaining the config (recipe)](https://github.com/gem-storm/smrs-guide/tree/main#explaining-the-config-recipe)
-- [Making a mask](https://github.com/gem-storm/smrs-guide/tree/main#making-a-mask)
+
+- [Installation](#installation)  
+- [RIFE/pre-interp Installation](#rifepre-interp-installation)   
+- [Explaining the config (recipe)](#explaining-the-config-recipe)
+- [Making a mask](#making-a-mask)
+
 ## Installation
-### You can follow [this tutorial I made](https://youtu.be/RfPDgoMuSWg)
-If you don't want to watch that tutorial, follow the rest of this section and RIFE/pre-interp Installation:
-- Go to https://github.com/couleur-tweak-tips/smoothie-rs/releases and download `smoothie-rs-nightly.zip`.
+
+#### You can follow [this tutorial I made](https://youtu.be/RfPDgoMuSWg).
+
+If you don't want to watch the tutorial, follow these steps:
+
+- Go to https://github.com/couleur-tweak-tips/smoothie-rs/releases/latest and download `smoothie-rs-nightly.zip`.
 - Unzip the file.
 - Running launch.cmd will start the program, the config file is called `recipe.ini`.
-- **Adding to Send to:**
-- Go to `...\smoothie-rs-nightly\smoothie-rs\bin` and make a shortcut to `smoothie-rs.exe`.
-- Right click the shortcut and type " -v -i" at the end of `Target`. Should be like this: `...\smoothie-rs\bin\smoothie-rs.exe -v -i`.
-- Do Win + R, type `Shell:SendTo` in the run dialog and hit enter.
-- Move the smoothie-rs.exe shortcut you made earlier into the folder that opened.
-- Now you can send videos to Smoothie by Right click > Send to > `smoothie-rs.exe - shortcut` (you can rename the shortcut if you would like).
-## RIFE/pre-interp Installation
-### What is RIFE?
-RIFE is a more accurate interpolation model, it is very slow compared to SVPFlow (the interpolation model that Blur/Smoothie's Interpolation uses), but it's way more accurate. It's generally only worth using if your input video is <240fps or a weird color format (such as I444).
-### Installation
-- The installation tutorial I linked earlier also shows how to install RIFE. You can follow this if you would like:
-- Go to https://github.com/nihui/rife-ncnn-vulkan/releases and download the Windows version.
+- Adding to Send to:
+  - Go to `...\smoothie-rs-nightly\smoothie-rs\bin` and make a shortcut to `smoothie-rs.exe`.
+  - Right click the shortcut and type `-v -i` at the end of `Target`. Should be like this:
+   `...\smoothie-rs\bin\smoothie-rs.exe -v -i`.
+  - Do Win + R, type `Shell:SendTo` in the run dialog and hit enter.
+  - Move the smoothie-rs.exe shortcut you made earlier into the folder that opened.
+  - Now you can send videos to Smoothie by Right click > Send to > `smoothie-rs.exe - shortcut` (you can rename the shortcut if you would like).
+
+## RIFE/pre-interp
+
+#### What is RIFE?
+RIFE is a more accurate interpolation model, it is very slow compared to SVPFlow (the interpolation model that Blur/Smoothie's Interpolation uses), but its way more accurate. Its generally only worth using if your input video is <240fps or a weird color format (such as I444).
+
+### Installation:
+
+- Go to https://github.com/nihui/rife-ncnn-vulkan/releases/latest and download the Windows version.    
 - Unzip the file.
 - Navigate to the folder with all the different models, and copy the path to the one you want to use. (If you're unsure, just use rife-v4.6)
 - Go to `...\smoothie-rs-nightly\smoothie-rs` and open `recipe.ini`
 - Scroll to the bottom of the config, and replace `model: rife-v4.4` with `model: {rife model path here}`
 - To use RIFE, enable pre-interp.
+
 ## Explaining the config (recipe)
-Smoothie-RS's config **MUST STAY IN THAT FOLDER**, moving it to the same folder as your video wont do anything.
-- Here's the config with explanations of what everything does:
+
+Smoothie-RS's config ***MUST STAY IN THAT FOLDER***, moving it to the same folder as your video wont do anything.
+
+- Heres the config with explanations of what everything does:
+
 ```ini
 [interpolation]
 enabled: yes # Enables interpolation (SVPFlow).
@@ -107,13 +121,15 @@ masking: no # Enables masking for pre-interp.
 factor: 2x # Fps factor (2x is probably all you need).
 model: # Put your RIFE path here.
 ```
+
 ## Making a mask
+
 - Download Paint.net from https://getpaint.net.
 - Take a screenshot of your video (make sure the resolution matches and the HUD is visible).
 - Open the screenshot in Paint.net.
 - Make a new layer.
 - Make sure Anti-Aliasing is DISABLED.
-- Start coloring the parts of the video you want to mask in **black**.
-- Once you are done, fill the rest of the image with **white**.
+- Start coloring the parts of the video you want to mask in *black*.
+- Once you are done, fill the rest of the image with *white*.
 - Do Ctrl + Shift + S and save as a PNG.
 - Copy the path and use it in Smoothie-RS.
