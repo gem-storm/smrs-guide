@@ -135,5 +135,5 @@ model: # Put your RIFE path here.
 - Do Ctrl + Shift + S and save as a PNG.
 - Copy the path and use it in Smoothie-RS.
 
-  ## Coldchrome LUT download
+## Coldchrome LUT download
 Coldchrome should be used with around 0.1-0.2 opacity, depending on the clip. You can download it [here](https://files.catbox.moe/d5jvto.cube)
