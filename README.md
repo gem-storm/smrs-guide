@@ -6,6 +6,7 @@ A bunch of guides for Smoothie-RS (Windows only)
 - [RIFE/pre-interp](#rifepre-interp)   
 - [Explaining the config (recipe)](#explaining-the-config-recipe)
 - [Making a mask](#making-a-mask)
+- [Encoding args](#encoding-args)
 - [Coldchrome LUT download](#coldchrome-lut-download)
 
 ## Installation
@@ -134,6 +135,15 @@ model: # Put your RIFE path here.
 - Once you are done, fill the rest of the image with *white*.
 - Do Ctrl + Shift + S and save as a PNG.
 - Copy the path and use it in Smoothie-RS.
+
+## Encoding args
+Luckily for us, Couleur added an easy way to customize your encoding args in Smoothie-RS.
+- `H264 NVENC` for NVIDIA,
+- `H264 AMF` for AMD, or
+- `H264 CPU` for Intel.
+> Simply replace `H264` with `H265` if you want HEVC.
+- You can also add things such as `4K` to upscale within Smoothie-RS, read `encoding_presets.ini` for more info.
+- You can still type encoding args the old-fashioned way, and to make it easier you can edit `encoding_presets.ini` to add your own custom presets.
 
 ## Coldchrome LUT download
 Coldchrome should be used with around 0.1-0.2 opacity, depending on the clip. You can download it [here](https://files.catbox.moe/d5jvto.cube)
