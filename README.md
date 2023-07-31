@@ -78,7 +78,7 @@ enabled: yes # Enables the preview window.
 process: ffplay # Process used for the preview window.
 output args: -f yuv4mpegpipe - # Preview window arguments.
 
-[artifact masking] Tutorial for mask-making later in the guide.
+[artifact masking] # Tutorial for mask-making later in the guide.
 enabled: no # Global toggle for masking.
 feathering: yes # Adds feathering to the mask.
 folder path: # Put the path to the folder that your mask is in.
