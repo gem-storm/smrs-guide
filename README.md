@@ -139,13 +139,15 @@ It's worth noting that masking is only really needed for low-fps inputs such as 
 
 ## Encoding args
 
-Luckily for us, Couleur added an easy way to customize your encoding args in Smoothie-RS.
-- `H264 NVENC` for Nvidia,
-- `H264 AMF` for AMD, or
-- `H264 CPU` for Intel.
-> Simply replace `H264` with `H265` if you want HEVC.
-- You can also add things such as `4K` to upscale within Smoothie-RS, read `encoding_presets.ini` for more info.
-- You can still type encoding args the old-fashioned way, and to make it easier you can edit `encoding_presets.ini` to add your own custom presets.
+### What is an encoding arg?
+Encoding args change how your video is encoded, you can customize bitrate, encoder, codec, even add some visual effects like sharpening or upscaling.
+
+- Couleur added a way to change the encoding args easily, but the problem is that the presets kinda suck... Here's some alternatives:
+- `-c:v h264_nvenc -rc constqp -preset p7 -qp 15` - H264 (Nvidia)
+- `-c:v hevc_nvenc -rc constqp -preset p7 -qp 15` - HEVC (Nvidia)
+- `-c:v libx264 -aq-mode=3 -crf 14` H264 (CPU)
+> *I don't know any good AMD encoding args, until I find good ones just use the CPU args..*
+- You could also edit `encoding_presets.ini` to add your own custom presets.
 
 ## Coldchrome LUT download
 
