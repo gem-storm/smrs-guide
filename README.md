@@ -145,8 +145,11 @@ Encoding args change how your video is encoded, you can customize bitrate, encod
 - Couleur added a way to change the encoding args easily, but the problem is that the presets kinda suck... Here's some alternatives:
   - `-c:v h264_nvenc -rc constqp -preset p7 -qp 15` - H264 (Nvidia)
   - `-c:v hevc_nvenc -rc constqp -preset p7 -qp 15` - HEVC (Nvidia)
-  - `-c:v libx264 -aq-mode=3 -crf 14` H264 (CPU)
-> *I don't know any good AMD encoding args, until I find good ones just use the CPU args..*
+  - `-c:v h264_amf -quality quality -qp_i 16 -qp_p 18 -qp_b 22` - H264 (AMD)
+  - `-c:v hevc_amf -quality quality -qp_i 18 -qp_p 20 -qp_b 24` - HEVC (AMD)
+  - `-c:v libx264 -preset slow -aq-mode 3 -crf 16` - H264 (CPU)
+  - `-c:v libx265 -preset medium -x265-params aq-mode=3:no-sao=1 -crf 20` - HEVC (CPU)
+> *Tweak the quality level to match your recording settings...*
 - You could also edit `encoding_presets.ini` to add your own custom presets.
 
 ## Coldchrome LUT download
