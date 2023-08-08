@@ -142,7 +142,6 @@ It's worth noting that masking is only really needed for low-fps inputs such as 
 ### What is an encoding arg?
 Encoding args change how your video is encoded, you can customize bitrate, encoder, codec, even add some visual effects like sharpening or upscaling.
 ### What are some good ones?
-- Couleur added a way to change the encoding args easily, but the problem is that the presets kinda suck... Here's some alternatives:
   - `-c:v h264_nvenc -rc constqp -preset p7 -qp 15` - H264 (Nvidia)
   - `-c:v hevc_nvenc -rc constqp -preset p7 -qp 15` - HEVC (Nvidia)
   - `-c:v h264_amf -quality quality -qp_i 16 -qp_p 18 -qp_b 22` - H264 (AMD)
