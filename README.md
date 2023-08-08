@@ -174,11 +174,14 @@ Here are some common problems and their solutions:
 `powershell -noe "iex(irm tl.ctt.cx); Get FFmpeg"`  
 This will install Scoop package manager and FFmpeg.
 
+#### No valid videos were passed to smoothie
+- **Solution:** ^
+
 #### 'X' is not an official yuv4mpegpipe pixel format
 - **Solution:** Your video is recorded in color format that is unsuppored by SVPFlow algorithm (interpolation). Convert your video to a supported color format or don't interpolate your video/use rife interpolation instead.
 
 #### Driver does not support the required nvenc API version.
-- **Solution:** Update your NVidia GPU drivers.
+- **Solution:** Update your Nvidia GPU drivers. 
 
 #### Python exception: Source: The index does not match the source file
-- **Solution:** Ensure your video path doesn't have any non-english, special characters.
+- **Solution:** Ensure your video path doesn't have any non-english, special characters. The name of your file might be the problem, try renaming it.
