@@ -165,6 +165,8 @@ Coldchrome should be used with around 0.1-0.2 opacity, depending on the clip. Yo
 ## Troubleshooting
 
 Here are some common problems and their solutions:
+#### Smoothie crashing before any error can be read
+- **Solution:** Run Smoothie by using `launch.cmd` in the installation folder and select your video. Now Smoothie will wait to close. (If there's no error message, it's likely a problem with your Send to shortcut)
 
 #### Recipe: Setting 'X' has no parent category
 - **Solution:** Double check the syntax of your recipe config file. Make sure you're not using the config from the old [smoothie-py](https://github.com/couleur-tweak-tips/Smoothie) or [blur](https://github.com/f0e/blur).
