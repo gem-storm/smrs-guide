@@ -1,5 +1,8 @@
 A bunch of guides for Smoothie-RS (Windows only)
 
+> [!IMPORTANT]  
+> Please read [Troubleshooting](#troubleshooting) if you encounter any issues. If you are unable to address your issue on your own, please create a support post in [CTT's support forum](https://discord.com/channels/774315187183288411/1020030329790148678).
+
 ## Table of contents
 
 - [Installation](#installation)  
@@ -8,6 +11,7 @@ A bunch of guides for Smoothie-RS (Windows only)
 - [Making a mask](#making-a-mask)
 - [Encoding args](#encoding-args)
 - [Coldchrome LUT download](#coldchrome-lut-download)
+- [Troubleshooting](#troubleshooting)
 
 ## Installation
 
@@ -29,6 +33,7 @@ If you don't want to watch the tutorial, follow these steps:
 ## RIFE/pre-interp
 
 #### What is RIFE?
+
 RIFE is a more accurate interpolation model, it is very slow compared to SVPFlow (the interpolation model that Blur/Smoothie's Interpolation uses), but its way more accurate. Its generally only worth using if your input video is <240fps or a weird color format (such as I444).
 
 ### Installation:
@@ -140,7 +145,9 @@ It's worth noting that masking is only really needed for low-fps inputs such as 
 ## Encoding args
 
 ### What is an encoding arg?
+
 Encoding args change how your video is encoded, you can customize bitrate, encoder, codec, even add some visual effects like sharpening or upscaling.
+
 ### What are some good ones?
   - `-c:v h264_nvenc -rc constqp -preset p7 -qp 15` - H264 (Nvidia)
   - `-c:v hevc_nvenc -rc constqp -preset p7 -qp 15` - HEVC (Nvidia)
@@ -154,3 +161,24 @@ Encoding args change how your video is encoded, you can customize bitrate, encod
 ## Coldchrome LUT download
 
 Coldchrome should be used with around 0.1-0.2 opacity, depending on the clip. You can download it [here](https://files.catbox.moe/d5jvto.cube)
+
+## Troubleshooting
+
+Here are some common problems and their solutions:
+
+#### Recipe: Setting 'X' has no parent category
+- **Solution:** Double check the syntax of your recipe config file. Make sure you're not using the config from the old [smoothie-py](https://github.com/couleur-tweak-tips/Smoothie) or [blur](https://github.com/f0e/blur).
+
+#### ffmpeg.exe is not installed/in PATH, ensure FFmpeg is installed
+- **Solution:** You need to have ffmpeg in order to use smoothie-rs. The easiest way to install it is by running an automated installer:  
+`powershell -noe "iex(irm tl.ctt.cx); Get FFmpeg"`  
+This will install Scoop package manager and FFmpeg.
+
+#### 'X' is not an official yuv4mpegpipe pixel format
+- **Solution:** Your video is recorded in color format that is unsuppored by SVPFlow algorithm (interpolation). Convert your video to a supported color format or don't interpolate your video/use rife interpolation instead.
+
+#### Driver does not support the required nvenc API version.
+- **Solution:** Update your NVidia GPU drivers.
+
+#### Python exception: Source: The index does not match the source file
+- **Solution:** Ensure your video path doesn't have any non-english, special characters.
