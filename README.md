@@ -71,7 +71,7 @@ bright blend: no # Overlays the frames in a different way, the same way as Premi
 [flowblur] # RSMB-like motion blur.
 enabled: no # Enables flowblur.
 masking: yes # Masking toggle for flowblur.
-intensity: 50 # Tntensity of the flowblur.
+intensity: 50 # Intensity of the flowblur.
 do blending: after # Choose if you want to do frame blending before or after flowblur is applied.
 
 [output]
