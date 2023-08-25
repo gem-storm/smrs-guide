@@ -9,7 +9,7 @@ A bunch of guides for Smoothie-RS (Windows only)
 - [RIFE/pre-interp](#rifepre-interp)   
 - [Explaining the config (recipe)](#explaining-the-config-recipe)
 - [Making a mask](#making-a-mask)
-- [Encoding args](#encoding-args)
+- [Encoding arguments](#encoding-arguments)
 - [Coldchrome LUT download](#coldchrome-lut-download)
 - [Troubleshooting](#troubleshooting)
 
@@ -21,7 +21,7 @@ If you don't want to watch the tutorial, follow these steps:
 
 - Go to https://github.com/couleur-tweak-tips/smoothie-rs/releases/latest and download `smoothie-rs-nightly.zip`.
 - Unzip the file.
-- Running launch.cmd will start the program, the config file is called `recipe.ini`.
+- Running `launch.cmd` will start the program, the config file is called `recipe.ini`.
 - Adding to Send to:
   - Go to `...\smoothie-rs-nightly\smoothie-rs\bin` and make a shortcut to `smoothie-rs.exe`.
   - Right click the shortcut and type `-v -i` at the end of `Target`. Should be like this:
@@ -34,10 +34,11 @@ If you don't want to watch the tutorial, follow these steps:
 
 #### What is RIFE?
 
-RIFE is a more accurate interpolation model, it is very slow compared to SVPFlow (the interpolation model that Blur/Smoothie's Interpolation uses), but its way more accurate. Its generally only worth using if your input video is <240fps or a weird color format (such as I444).
+RIFE is a more accurate interpolation model, it is very slow compared to SVPFlow (the interpolation algorithm that Blur/Smoothie's interpolation uses), but its way more accurate. Its generally only worth using if your input video is <240fps or a weird color format (such as I444).
 
 ### Installation:
 
+> This is also covered in [my installation video](https://youtu.be/RfPDgoMuSWg)
 - Go to https://github.com/nihui/rife-ncnn-vulkan/releases/latest and download the Windows version.    
 - Unzip the file.
 - Navigate to the folder with all the different models, and copy the path to the one you want to use. (If you're unsure, just use rife-v4.6)
@@ -53,8 +54,8 @@ Smoothie-RS's config ***MUST STAY IN THAT FOLDER***, moving it to the same folde
 
 ```ini
 [interpolation]
-enabled: yes # Enables interpolation (SVPFlow).
-masking: no # Masking let's you block out certain areas of the video, to avoid HUD artifacts. This toggles masking for interpolation only.
+enabled: yes # Enables interpolation (SVPFlow algorithm).
+masking: no # Masking let's you block out certain areas of the video to avoid HUD artifacts. This toggles masking for interpolation only.
 fps: 1920 # What framerate you would like to interpolate to (a factor such as 2x or 3x will also work).
 speed: medium # A faster speed will result in more artifacts and less accurate interpolation, only worth changing if your input video is over 300fps.
 tuning: weak # A different tuning will slightly change how the interpolation looks, weak is considered the best for Minecraft.
@@ -63,8 +64,8 @@ use gpu: yes # Uses your GPU to interpolate.
 
 [frame blending]
 enabled: yes # Enables frame blending.
-fps: 60 # The output framerate.
-intensity: 1.0 # A higher intensity will reuse blur frames from the previous frame, 1.0-1.5 is the sweet spot for 60fps output.
+fps: 60 # Desired output framerate.
+intensity: 1.0 # A higher intensity will reuse blur frames from the previous frame, 1.0-1.5 is considered the sweet spot for 60fps output.
 weighting: equal # A different weighting will change the opacity of the blur frames, such as ascending or gaussian.
 bright blend: no # Overlays the frames in a different way, the same way as Premiere Pro's frame blending.
 
@@ -76,7 +77,7 @@ do blending: after # Choose if you want to do frame blending before or after flo
 
 [output]
 process: ffmpeg # What process is used for the encoding.
-enc args: # Put your own encoding args here.
+enc args: # Put your own encoding arguments here.
 file format: %FILENAME% ~ %FRUIT% # How the file name is formatted.
 container: .MP4 # Output video container.
 
@@ -97,8 +98,8 @@ always verbose: no # The Send to shortcut takes care of this.
 dedup threshold: 0 # Uses interpolation to guess duplicated frames (set to around 0.01 - 0.005).
 global output folder: # Seems to be broken.
 source indexing: no # People don't seem to know, i'll update this if I ever get an answer.
-ffmpeg options: -loglevel error -i - -hide_banner -stats -stats_period 0.15 # Args for ffmpeg
-ffplay options: -loglevel quiet -i - -autoexit -window_title smoothie.preview # Args for ffplay (preview window)
+ffmpeg options: -loglevel error -i - -hide_banner -stats -stats_period 0.15 # Arguments for ffmpeg.
+ffplay options: -loglevel quiet -i - -autoexit -window_title smoothie.preview # Argumentss for ffplay (preview window).
 
 [console] # These seem to be ignored when using Send to.
 stay on top: no
@@ -119,7 +120,7 @@ contrast: 1.0
 
 [lut]
 enabled: no # Enables the LUT filter.
-path: # Put a path to a .cube file here.
+path: # Put a path to a .cube file here (coldchrome download later in the guide).
 opacity: 0.1 # Opacity of the lut.
 
 [pre-interp]
@@ -142,45 +143,45 @@ It's worth noting that masking is only really needed for low-fps inputs such as 
 - Do Ctrl + Shift + S and save as a PNG.
 - Copy the path and use it in Smoothie-RS.
 
-## Encoding args
+## Encoding arguments
 
-### What is an encoding arg?
+### What is an encoding argument?
 
-Encoding args change how your video is encoded, you can customize bitrate, encoder, codec, even add some visual effects like sharpening or upscaling.
+Encoding arguments change how your video is encoded, you can customize bitrate, encoder, codec, even add some visual effects like sharpening or upscaling.
 
-### What are some good ones?
+### GPU-specific recommendations:
   - `-c:v h264_nvenc -rc constqp -preset p7 -qp 15` - H264 (Nvidia)
   - `-c:v hevc_nvenc -rc constqp -preset p7 -qp 15` - HEVC (Nvidia)
   - `-c:v h264_amf -quality quality -qp_i 16 -qp_p 18 -qp_b 22` - H264 (AMD)
   - `-c:v hevc_amf -quality quality -qp_i 18 -qp_p 20 -qp_b 24` - HEVC (AMD)
   - `-c:v libx264 -preset slow -aq-mode 3 -crf 16` - H264 (CPU)
   - `-c:v libx265 -preset medium -x265-params aq-mode=3:no-sao=1 -crf 20` - HEVC (CPU)
-> *Tweak the quality level to match your recording settings...*
-- You could also edit `encoding_presets.ini` to add your own custom presets.
+> *Tweak the quality level to match your recording settings.*
+- You can edit `encoding_presets.ini` to add your own custom presets!
 
 ## Coldchrome LUT download
 
-Coldchrome should be used with around 0.1-0.2 opacity, depending on the clip. You can download it [here](https://files.catbox.moe/d5jvto.cube)
+Coldchrome should be used with around 0.1-0.2 opacity depending on the clip. You can download it [here](https://files.catbox.moe/d5jvto.cube)
 
 ## Troubleshooting
 
 Here are some common problems and their solutions:
 #### Smoothie crashing before any error can be read
-- **Solution:** Run Smoothie by using `launch.cmd` in the installation folder and select your video. Now Smoothie will wait to close. (If there's no error message, it's likely a problem with your Send to shortcut)
+- **Solution:** Run Smoothie by using `launch.cmd` and select your video. Smoothie will now stay open and you can read the error. <ins>If there's no error message, it's likely a problem with your Send to shortcut</ins>.
 
 #### Recipe: Setting 'X' has no parent category
 - **Solution:** Double check the syntax of your recipe config file. Make sure you're not using the config from the old [smoothie-py](https://github.com/couleur-tweak-tips/Smoothie) or [blur](https://github.com/f0e/blur).
 
 #### ffmpeg.exe is not installed/in PATH, ensure FFmpeg is installed
-- **Solution:** You need to have ffmpeg in order to use smoothie-rs. The easiest way to install it is by running an automated installer:  
+- **Solution:** You need to have FFmpeg installed <ins>and in path</ins> in for Smoothie to work. The easiest way to install it is by running an automated installer:  
 `powershell -noe "iex(irm tl.ctt.cx); Get FFmpeg"`  
-This will install Scoop package manager and FFmpeg.
+This will install [Scoop](https://scoop.sh) and FFmpeg.
 
 #### No valid videos were passed to smoothie
-- **Solution:** ^
+- **Solution:** Make sure there's nothng wrong with your video (try reencoding), and make sure FFmpeg is installed.
 
 #### 'X' is not an official yuv4mpegpipe pixel format
-- **Solution:** Your video is recorded in color format that is unsuppored by SVPFlow algorithm (interpolation). Convert your video to a supported color format or don't interpolate your video/use rife interpolation instead.
+- **Solution:** Your video is recorded in a color format that is unsuppored by SVPFlow (interpolation algorithm). Convert your video to a supported color format (NV12) or don't use interpolation (or use pre-interp instead).
 
 #### Driver does not support the required nvenc API version.
 - **Solution:** Update your Nvidia GPU drivers. 
