@@ -11,6 +11,7 @@ A bunch of guides for Smoothie-RS (Windows only)
 - [Making a mask](#making-a-mask)
 - [Encoding arguments](#encoding-arguments)
 - [Coldchrome LUT download](#coldchrome-lut-download)
+- [More SendTo/command line arguments](#more-sendtocommand-line-arguments)
 - [Troubleshooting](#troubleshooting)
 
 ## Installation
@@ -150,8 +151,8 @@ It's worth noting that masking is only really needed for low-fps inputs such as 
 Encoding arguments change how your video is encoded, you can customize bitrate, encoder, codec, even add some visual effects like sharpening or upscaling.
 
 ### GPU-specific recommendations:
-  - `-c:v h264_nvenc -rc constqp -preset p7 -qp 15` - H264 (Nvidia)
-  - `-c:v hevc_nvenc -rc constqp -preset p7 -qp 15` - HEVC (Nvidia)
+  - `-c:v h264_nvenc -preset p7 -qp 15` - H264 (Nvidia)
+  - `-c:v hevc_nvenc -preset p7 -qp 15` - HEVC (Nvidia)
   - `-c:v h264_amf -quality quality -qp_i 16 -qp_p 18 -qp_b 22` - H264 (AMD)
   - `-c:v hevc_amf -quality quality -qp_i 18 -qp_p 20 -qp_b 24` - HEVC (AMD)
   - `-c:v libx264 -preset slow -aq-mode 3 -crf 16` - H264 (CPU)
@@ -162,6 +163,27 @@ Encoding arguments change how your video is encoded, you can customize bitrate, 
 ## Coldchrome LUT download
 
 Coldchrome should be used with around 0.1-0.2 opacity depending on the clip. You can download it [here](https://files.catbox.moe/d5jvto.cube)
+
+## More SendTo/command line arguments
+
+Remember when we added ` -v -i` in the SendTo shortcut? Well there's actually a lot more we can do:
+
+```
+-i/--input      Specifies input video (add the input video's path if you're using smoothie from the commmand line).
+-o/--output     Specify output video's path.
+-t/--tui        Makes smoothie pause before exiting.
+--outdir        Specify output directory.
+--stripaudio    Removes audio.
+-v/--verbose    Prints verbose information.
+--debug         Prints all the nerdy stuff to find bugs.
+-r/--recipe     Specify a recipe path.
+--override      Override any recipe setting(s), eg --override "flowblur;amount;40".
+```
+> I've removed the ones that I don't recommend\understand. If you want to see them all, drag smoothie-rs.exe onto a command prompt window (to paste the path) and hit enter.
+#### Here's my personal configuration (I have multiple SendTo shortcuts that use specific recipes):
+```
+path\to\smoothie-rs.exe -r "path\to\recipe" --outdir "D:\Smoothied" -v -i
+```
 
 ## Troubleshooting
 
