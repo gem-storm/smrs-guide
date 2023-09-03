@@ -179,7 +179,7 @@ Remember when we added ` -v -i` in the SendTo shortcut? Well there's actually a 
 -r/--recipe     Specify a recipe path.
 --override      Override any recipe setting(s), eg --override "flowblur;amount;40".
 ```
-> I've removed the ones that I don't recommend\understand. If you want to see them all, drag smoothie-rs.exe onto a command prompt window (to paste the path) and hit enter.
+> I've removed the ones that I don't recommend/understand. If you want to see them all, drag smoothie-rs.exe onto a command prompt window (to paste the path) and hit enter.
 #### Here's my personal configuration (I have multiple SendTo shortcuts that use specific recipes):
 ```
 path\to\smoothie-rs.exe -r "path\to\recipe" --outdir "D:\Smoothied" -v -i
@@ -197,7 +197,7 @@ Here are some common problems and their solutions:
 #### ffmpeg.exe is not installed/in PATH, ensure FFmpeg is installed
 - **Solution:** You need to have FFmpeg installed <ins>and in path</ins> in for Smoothie to work. The easiest way to install it is by running an automated installer:  
 `powershell -noe "iex(irm tl.ctt.cx); Get FFmpeg"`  
-This will install [Scoop](https://scoop.sh) and FFmpeg.
+This will install [Scoop](https://scoop.sh) and use it to install FFmpeg (and add it to path).
 
 #### No valid videos were passed to smoothie
 - **Solution:** Make sure there's nothng wrong with your video (try reencoding), and make sure FFmpeg is installed.
