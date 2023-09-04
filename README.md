@@ -97,7 +97,7 @@ file name: # Put the name of your mask here.
 play ding: no # Plays a ding sound when the video is done rendering (it's either broken or im incorrect).
 always verbose: no # The Send to shortcut takes care of this.
 dedup threshold: 0 # Uses interpolation to guess duplicated frames (set to around 0.01 - 0.005).
-global output folder: # Seems to be broken.
+global output folder: # Seems to be broken, but you can use --outdir (revisited later in this guide).
 source indexing: no # People don't seem to know, i'll update this if I ever get an answer.
 ffmpeg options: -loglevel error -i - -hide_banner -stats -stats_period 0.15 # Arguments for ffmpeg.
 ffplay options: -loglevel quiet -i - -autoexit -window_title smoothie.preview # Argumentss for ffplay (preview window).
@@ -166,10 +166,10 @@ Coldchrome should be used with around 0.1-0.2 opacity depending on the clip. You
 
 ## More SendTo/command line arguments
 
-Remember when we added ` -v -i` in the SendTo shortcut? Well there's actually a lot more we can do:
+Remember when we added `-v` and `-i` in the SendTo shortcut? There's actually a lot more we can do with the target box:
 
 ```
--i/--input      Specifies input video (add the input video's path if you're using smoothie from the commmand line).
+-i/--input      Specify input video (you need to do '-i "path\to\input"' if you're using the command line.).
 -o/--output     Specify output video's path.
 -t/--tui        Makes smoothie pause before exiting.
 --outdir        Specify output directory.
@@ -179,7 +179,7 @@ Remember when we added ` -v -i` in the SendTo shortcut? Well there's actually a 
 -r/--recipe     Specify a recipe path.
 --override      Override any recipe setting(s), eg --override "flowblur;amount;40".
 ```
-> I've removed the ones that I don't recommend/understand. If you want to see them all, drag smoothie-rs.exe onto a command prompt window (to paste the path) and hit enter.
+> I've removed the ones that I don't recommend. If you want to see them all; drag smoothie-rs.exe onto a command prompt window (to paste the path) and hit enter.
 #### Here's my personal configuration (I have multiple SendTo shortcuts that use specific recipes):
 ```
 path\to\smoothie-rs.exe -r "path\to\recipe" --outdir "D:\Smoothied" -v -i
