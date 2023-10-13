@@ -25,7 +25,7 @@ If you don't want to watch the tutorial, follow these steps:
 - Running `launch.cmd` will start the program, the config file is called `recipe.ini`.
 - Adding to Send to:
   - Go to `...\smoothie-rs-nightly\smoothie-rs\bin` and make a shortcut to `smoothie-rs.exe`.
-  - Right click the shortcut and type `-v -i` at the end of `Target`. Should be like this:
+  - Open the shortcut's properties and type `-v -i` at the end of `Target`. Should be like this:
    `...\smoothie-rs\bin\smoothie-rs.exe -v -i`.
   - Do Win + R, type `Shell:SendTo` in the run dialog and hit enter.
   - Move the smoothie-rs.exe shortcut you made earlier into the folder that opened.
