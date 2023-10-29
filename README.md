@@ -29,7 +29,7 @@ I personally recommend using f0e's [blur](https://github.com/f0e/blur) if you wo
 You can name this shortcut to whatever you prefer, I just call it `Smoothie-RS`
 - Do Win + R, type `shell:sendto` in the run dialog and hit enter.
 - Move the smoothie-rs.exe shortcut you made earlier into the folder that opened.
-- Now you can send videos to Smoothie by Right click > Send to > `smoothie-rs.exe - shortcut` (you can rename the shortcut if you would like).
+- Now you can send videos to Smoothie by Right click > Send to > `Smoothie-RS`.
 
 ## pre-interp (RIFE)
 
