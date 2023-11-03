@@ -105,6 +105,7 @@ factor: 2x
 ## Making a mask
 
 It's worth noting that masking is only really needed for low-fps inputs such as 120-180fps, or if you are using Flowblur.
+> [Video guide](https://www.youtube.com/watch?v=5GW2TUx78WY), shoutout to `@ixtf`.
 - Download Paint.net from https://getpaint.net.
 - Take a screenshot of your video (make sure the resolution matches and the HUD is visible).
 - Open the screenshot in Paint.net.
