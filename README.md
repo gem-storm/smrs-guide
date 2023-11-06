@@ -35,7 +35,7 @@ You can name this shortcut to whatever you prefer, I just call it `Smoothie-RS`
 
 #### What is RIFE?
 
-RIFE is an interpolation model, it is very slow compared to SVPFlow (the interpolation algorithm that Blur/Smoothie's interpolation uses), but its way more accurate. Its generally only worth using if your input video is <240fps or a color format that SVPFlow doesn't support (such as I444).
+RIFE is an interpolation model, it is very slow compared to SVPFlow (the interpolation algorithm that Blur/Smoothie's interpolation uses), but it's way more accurate. It's only worth installing and using if your input video is <240fps or a color format that SVPFlow doesn't support (such as I444).
 
 ### Installation:
 - Go to [github.com/nihui/rife-ncnn-vulkan/releases/latest](https://github.com/nihui/rife-ncnn-vulkan/releases/latest) and download the Windows version.    
