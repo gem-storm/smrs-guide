@@ -53,53 +53,53 @@ Smoothie-RS's config ***MUST STAY IN THAT FOLDER*** (unlike f0e's blur).
 ```ini
 [interpolation]
 fps: 1920
-	# Target interpolation framerate (a factor such as 2x or 3x will also work).
+    # Target interpolation framerate (a factor such as 2x or 3x will also work).
 speed: medium
-	# Faster speeds = less accurate interpolation but faster render times. Options: medium, fast, faster, and fastest.
+    # Faster speeds = less accurate interpolation but faster render times. Options: medium, fast, faster, and fastest.
 tuning: weak
-	# Slightly changes how the interpolation frames look. Options: animation, film, smooth, and weak.
+    # Slightly changes how the interpolation frames look. Options: animation, film, smooth, and weak.
 algorithm: 23
-	# Algorithms also change the interpolation a bit. Options: 13 and 23 (there are more, but they aren't recommended).
+    # Algorithms also change the interpolation a bit. Options: 13 and 23 (there are more, but they aren't recommended).
 
 [frame blending]
 fps: 60
-	# Output video's framerate.
+    # Output video's framerate.
 intensity: 1.0
-	# Higher intensity will give more ghosting, recommended to start at 1.0 and adjust to your liking.
+    # Higher intensity will give more ghosting, recommended to start at 1.0 and adjust to your liking.
 weighting: equal
-	# Weighting will change the opacity of the blur frames. Options: ascending, equal, gaussian, gaussian_sym, pyramid, and vegas.
+    # Weighting will change the opacity of the blur frames. Options: ascending, equal, gaussian, gaussian_sym, pyramid, and vegas.
 bright blend: no
-	# Only blends the bright parts of the frames, the same as Adobe Premiere Pro's blending.
+    # Only blends the bright parts of the frames, the same as Adobe Premiere Pro's blending.
 
 [flowblur]
-	# RSMB-like motion blur.
+    # RSMB-like motion blur.
 do blending: after
-	# Choose whether frame blending before or after flowblur.
+    # Choose whether frame blending before or after flowblur.
 
 [output]
 process: ffmpeg
-	# Process used for encoding.
+    # Process used for encoding.
 enc args: H264 CPU
-	# Encoding arguments (explained later).
+    # Encoding arguments (explained later).
 file format: %FILENAME% ~ %FRUIT%
-	# File name format.
+    # File name format.
 
 [artifact masking]
-	# Covers areas of your video to prevent artifacts. Tutorial for mask-making later in the guide.
+    # Covers areas of your video to prevent artifacts. Tutorial for mask-making later in the guide.
 
 [miscellaneous]
 dedup threshold: 0
-	# Uses interpolation to replace duplicated frames (set to around 0.01 - 0.005).
+    # Uses interpolation to replace duplicated frames (set to around 0.01 - 0.005).
 global output folder:
-	# Seems to be broken
+    # Seems to be broken
 
 [lut]
 path:
-	# Put a path to a .cube file here (coldchrome download later in the guide).
+    # Put a path to a .cube file here (coldchrome download later in the guide).
 
 [pre-interp]
 factor: 2x
-	# Fps factor.
+    # Fps factor.
 ```
 
 ## Making a mask
