@@ -1,3 +1,8 @@
+# hi, this guide shouldn't be used anymore
+
+Couleur (Smoothie's dev) made [official Smoothie documentation](https://ctt.cx/video/smoothie). I don't see any reason to follow my guide anymore...
+
+### If you *really* want to see the old guide, here ya go:
 Welcome to my _unofficial guide_ for Couleur's [Smoothie-RS](https://github.com/couleur-tweak-tips/smoothie-rs).
 
 I personally recommend using f0e's [blur](https://github.com/f0e/blur) if you would rather have a more simple and user-friendly program.
